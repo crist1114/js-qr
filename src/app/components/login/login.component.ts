@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../../service/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -31,6 +32,12 @@ export class LoginComponent implements OnInit {
       location.pathname = 'generate';
     },
     err =>{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Datos invalidos!',
+        footer: ''
+      })
       console.log(err)
     }
     )
